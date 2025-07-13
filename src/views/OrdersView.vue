@@ -194,8 +194,10 @@
             >
               <img
                 :src="
-                  item.imageUrl ||
-                  base + 'sneakers/sneakers-' + (item.id || 1) + '.jpg'
+                  item.imageUrl && !item.imageUrl.startsWith('http')
+                    ? base + item.imageUrl.replace(/^\/+/, '')
+                    : item.imageUrl ||
+                      base + 'sneakers/sneakers-' + (item.id || 1) + '.jpg'
                 "
                 :alt="item.title"
                 class="w-12 h-12 object-cover rounded"
