@@ -30,7 +30,7 @@
 </script>
 <template>
   <header
-    class="flex items-center justify-between md:flex-row flex-col max-w-7xl mx-auto"
+    class="flex items-center justify-between md:flex-row flex-col max-w-7xl mx-auto px-3"
   >
     <div
       class="logo-header flex flex-wrap items-center gap-2 my-7 md:my-3 cursor-pointer"
@@ -47,7 +47,7 @@
       </div>
     </div>
     <div
-      class="header-buttons mb-7 md:mb-0 flex justify-center flex-wrap gap-2 [&>*]:min-w-30 flex [&>*]:flex [&>*]:flex-nowrap [&>*]:items-center [&>*]:justify-center [&>*]:gap-2 [&_img]:w-5 [&_img]:h-5 gap-5 [&>*]:cursor-pointer [&>*]:text-gray-500 [&>*]:hover:text-black"
+      class="header-buttons mb-7 md:mb-0 flex justify-center flex-wrap gap-2 [&>*]:min-w-30 [&>*]:lg:min-w-0 flex [&>*]:flex [&>*]:flex-nowrap [&>*]:items-center [&>*]:justify-center [&>*]:gap-2 [&_img]:w-5 [&_img]:h-5 gap-5 [&>*]:cursor-pointer [&>*]:text-gray-500 [&>*]:hover:text-black"
     >
       <HeaderCart
         :totalPrice="totalPrice"

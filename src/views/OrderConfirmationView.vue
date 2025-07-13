@@ -245,7 +245,7 @@
 
           <div
             v-if="order.items && order.items.length > 0"
-            class="space-y-4"
+            class="space-y-4 [&_img]:md:w-60 [&_img]:md:h-60"
           >
             <CartItem
               v-for="item in order.items"
