@@ -33,7 +33,7 @@
   >
     <div class="favourite-btn absolute top-3 right-4">
       <img
-        :src="!isFavorite ? '/like-1.svg' : '/like-2.svg'"
+        :src="!isFavorite ? base + 'like-1.svg' : base + 'like-2.svg'"
         alt="add to favourites"
         title="Добавить в избранное"
         class="w-10 h-10"
@@ -64,7 +64,7 @@
         </p>
       </div>
       <img
-        :src="!isInCart ? '/plus.svg' : '/checked.svg'"
+        :src="!isInCart ? base + 'plus.svg' : base + 'checked.svg'"
         alt="add to cart"
         title="Добавить в корзину"
         class="w-10 h-10 cursor-pointer hover:border-2 hover:border-slate-200 rounded-xl"

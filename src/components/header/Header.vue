@@ -22,6 +22,8 @@
     },
   })
 
+  const base = import.meta.env.BASE_URL
+
   const navigateTo = (path) => {
     router.push(path)
   }
@@ -35,7 +37,7 @@
       @click="navigateTo('/')"
     >
       <img
-        src="/logo.png"
+        :src="base + 'logo.png'"
         alt="logo"
         class="w-20 h-20"
       />

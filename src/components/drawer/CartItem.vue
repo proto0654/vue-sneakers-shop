@@ -53,7 +53,7 @@
       class="flex items-center justify-between sneakers-product-grid-item-info"
     >
       <img
-        src="/close.svg"
+        :src="base + 'close.svg'"
         alt="remove from cart"
         title="Удалить из корзины"
         class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 cursor-pointer"
