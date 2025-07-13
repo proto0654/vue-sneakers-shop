@@ -2,6 +2,7 @@
   import { ref, onMounted, computed, inject, watch } from 'vue'
   import axios from 'axios'
   import { useRouter, useRoute } from 'vue-router'
+  import CartItem from '../components/drawer/CartItem.vue'
 
   const { cartItems, totalPrice, fetchCart, clearCart } = inject('cartStore', {
     cartItems: ref([]),
@@ -246,37 +247,12 @@
             v-if="order.items && order.items.length > 0"
             class="space-y-4"
           >
-            <div
+            <CartItem
               v-for="item in order.items"
               :key="item.id"
-              class="flex items-center gap-4 p-4 border border-gray-200 rounded-lg"
-            >
-              <img
-                :src="
-                  item.imageUrl && !item.imageUrl.startsWith('http')
-                    ? base + item.imageUrl.replace(/^\/+/, '')
-                    : item.imageUrl ||
-                      base +
-                        'sneakers/sneakers-' +
-                        (item.parentId || item.id || 1) +
-                        '.jpg'
-                "
-                :alt="item.title"
-                class="w-16 h-16 object-cover rounded-lg"
-              />
-              <div class="flex-1">
-                <h4 class="font-semibold">{{ item.title }}</h4>
-                <p class="text-gray-600">Количество: {{ item.quantity }} шт.</p>
-                <p class="text-gray-600">
-                  Цена за единицу: {{ item.price }} руб.
-                </p>
-              </div>
-              <div class="text-right">
-                <p class="font-bold text-lg">
-                  {{ item.price * item.quantity }} руб.
-                </p>
-              </div>
-            </div>
+              :product="item"
+              :hideRemove="true"
+            />
           </div>
 
           <div

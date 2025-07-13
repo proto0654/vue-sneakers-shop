@@ -10,6 +10,10 @@
       type: Function,
       default: () => {},
     },
+    hideRemove: {
+      type: Boolean,
+      default: false,
+    },
   })
 
   const handleRemove = () => {
@@ -53,6 +57,7 @@
       class="flex items-center justify-between sneakers-product-grid-item-info"
     >
       <img
+        v-if="!props.hideRemove"
         :src="base + 'close.svg'"
         alt="remove from cart"
         title="Удалить из корзины"

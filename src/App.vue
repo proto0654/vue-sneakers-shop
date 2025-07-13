@@ -77,12 +77,19 @@
   const clearCart = async () => {
     try {
       const ids = cartItems.value.map((item) => item.id)
-      await Promise.all(
-        ids.map((id) =>
-          axios.delete(`https://02633170fd93f889.mokky.dev/cart/${id}`)
-        )
+      console.log('Попытка очистить корзину. Найдено id:', ids)
+      const results = await Promise.all(
+        ids.map((id) => {
+          console.log('Отправляю DELETE для id:', id)
+          return axios.delete(`https://02633170fd93f889.mokky.dev/cart/${id}`)
+        })
+      )
+      console.log(
+        'Результаты удаления:',
+        results.map((r) => r.status)
       )
       await fetchCart()
+      console.log('Корзина после fetchCart:', cartItems.value)
     } catch (error) {
       console.error('Ошибка при очистке корзины:', error)
     }
