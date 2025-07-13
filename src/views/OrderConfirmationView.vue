@@ -18,6 +18,8 @@
   const order = ref(null)
   const loading = ref(true)
 
+  const base = import.meta.env.BASE_URL
+
   const fetchOrder = async () => {
     try {
       loading.value = true
@@ -250,7 +252,13 @@
               class="flex items-center gap-4 p-4 border border-gray-200 rounded-lg"
             >
               <img
-                :src="item.imageUrl || `/sneakers/sneakers-${item.id || 1}.jpg`"
+                :src="
+                  item.imageUrl ||
+                  base +
+                    'sneakers/sneakers-' +
+                    (item.parentId || item.id || 1) +
+                    '.jpg'
+                "
                 :alt="item.title"
                 class="w-16 h-16 object-cover rounded-lg"
               />

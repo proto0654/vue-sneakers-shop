@@ -19,6 +19,8 @@
   const totalItemPrice = computed(() => {
     return props.product.price * props.product.quantity
   })
+
+  const base = import.meta.env.BASE_URL
 </script>
 
 <template>
@@ -26,7 +28,11 @@
     class="m-1 shadow-sm rounded-lg p-3 flex sneakers-product-grid-item relative hover:-translate-y-1 transition-all duration-300 gap-3 items-center relative"
   >
     <img
-      :src="product.imageUrl"
+      :src="
+        product.imageUrl.startsWith('http')
+          ? product.imageUrl
+          : base + product.imageUrl.replace(/^\/+/, '')
+      "
       alt="sneakers"
       class="w-25 h-auto aspect-square rounded-lg max-w-1/4"
     />

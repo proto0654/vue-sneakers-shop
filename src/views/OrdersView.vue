@@ -3,6 +3,8 @@
   import axios from 'axios'
   import { useRouter } from 'vue-router'
 
+  const base = import.meta.env.BASE_URL
+
   const { cartItems, totalPrice, fetchCart } = inject('cartStore', {
     cartItems: ref([]),
     totalPrice: computed(() => 0),
@@ -191,7 +193,10 @@
               class="flex items-center gap-3 p-3 bg-gray-50 rounded-lg"
             >
               <img
-                :src="item.imageUrl || `/sneakers/sneakers-${item.id || 1}.jpg`"
+                :src="
+                  item.imageUrl ||
+                  base + 'sneakers/sneakers-' + (item.id || 1) + '.jpg'
+                "
                 :alt="item.title"
                 class="w-12 h-12 object-cover rounded"
               />

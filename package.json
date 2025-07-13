@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{vue,js,ts,json,css,scss}\"",
     "format:check": "prettier --check \"src/**/*.{vue,js,ts,json,css,scss}\"",
-    "deploy": "npm run build && git add . && git commit -m \"Deploy: $(date +%Y-%m-%d %H:%M:%S)\" && git push"
+    "deploy": "npm run build && git add . && powershell -Command \"$dt=Get-Date -Format 'yyyy-MM-dd_HH-mm-ss'; git commit -m \\\"Deploy: $dt\\\"; git push\""
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.2",

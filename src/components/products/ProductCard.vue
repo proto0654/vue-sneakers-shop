@@ -14,6 +14,8 @@
 
   const emit = defineEmits(['cartOpen'])
 
+  const base = import.meta.env.BASE_URL
+
   const handleAddToFavorites = () => {
     props.onClickFavourite(props.id)
   }
@@ -39,7 +41,11 @@
       />
     </div>
     <img
-      :src="imageUrl"
+      :src="
+        imageUrl.startsWith('http')
+          ? imageUrl
+          : base + imageUrl.replace(/^\/+/, '')
+      "
       alt="sneakers"
       class="w-full aspect-square object-contain"
     />
