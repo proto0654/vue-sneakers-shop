@@ -33,7 +33,7 @@
         ...order,
         items: order.items.map((item) => {
           const product = allProducts.find(
-            (p) => p.id === item.parentId || item.id
+            (p) => p.id === (item.parentId || item.id)
           )
           return product
             ? {
